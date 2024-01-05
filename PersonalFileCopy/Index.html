@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy Google Drive Folders</title>
+  <style>
+    #loadingAnimation {
+      position: relative;
+      font-weight: bold;
+      display: none; /* Initially hidden */
+    }
+
+    #loadingAnimation::after {
+      content: "Copying.";
+      animation: loadingAnimation 1s infinite;
+    }
+
+    @keyframes loadingAnimation {
+      0% { content: "Copying."; }
+      33% { content: "Copying.."; }
+      66% { content: "Copying..."; }
+      100% { content: "Copying."; }
+    }
+
+    #completionMessage {
+      display: none; /* Initially hidden */
+    }
+  </style>
+  <script>
+    var scriptId = "18dKzwsVz-ctrVTTA_Gt4Y-IADXecjMEsN3xojltXayky_d-AZRi-VdiQ";
+    var isScriptRunning = false; // Flag to track script execution
+
+    function copyFolders() {
+      if (isScriptRunning) {
+        return; // Return if script is already running
+      }
+
+      var sourceFolder = document.getElementById("sourceFolder").value;
+      var targetFolder = document.getElementById("targetFolder").value;
+
+      var loadingAnimation = document.getElementById("loadingAnimation");
+      loadingAnimation.style.display = "inline-block"; // Show loading animation
+
+      var completionMessage = document.getElementById("completionMessage");
+      completionMessage.style.display = "none"; // Hide completion message
+
+      isScriptRunning = true; // Set script running flag to true
+
+      google.script.run.withSuccessHandler(function() {
+        loadingAnimation.style.display = "none"; // Hide loading animation
+        completionMessage.style.display = "block"; // Show completion message
+        isScriptRunning = false; // Set script running flag to false
+      }).withFailureHandler(function() {
+        loadingAnimation.style.display = "none"; // Hide loading animation
+        alert("Script failed!");
+        isScriptRunning = false; // Set script running flag to false
+      }).startCopy(sourceFolder, targetFolder);
+    }
+  </script>
+</head>
+<body>
+  <h1>Copy Google Drive Folders From Amersol to Personal</h1>
+  <form onsubmit="event.preventDefault(); copyFolders();">
+    <label for="sourceFolder">Source Folder ID:</label>
+    <input type="text" id="sourceFolder" name="sourceFolder"><br><br>
+
+    <label for="targetFolder">Target Folder ID:</label>
+    <input type="text" id="targetFolder" name="targetFolder"><br><br>
+
+    <input type="submit" value="Copy Folders">
+  </form>
+
+  <p id="loadingAnimation"></p>
+  <p id="completionMessage">Files and Folders copied successfully!</p>
+
+  <!-- Include the Google Apps Script API -->
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script>
+    // Load the Google Apps Script API
+    gapi.load('client', startScript);
+
+    function startScript() {
+      gapi.client.load('script', 'v1', function() {
+        google.script.run.withSuccessHandler(function() {
+          console.log("Google Apps Script API loaded successfully!");
+        }).withFailureHandler(function() {
+          console.log("Failed to load Google Apps Script API!");
+        }).load(scriptId);
+      });
+    }
+  </script>
+</body>
+</html>
+

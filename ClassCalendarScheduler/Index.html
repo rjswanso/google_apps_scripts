@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>FDR Calendar Creator</title>
+    <base target="_top">
+  </head>
+  <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<style>
+input[type=button] {
+    color:#08233e;
+    font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-size:100%;
+    padding:24px;
+    background:url(overlay.png) repeat-x center #ffcc00;
+    background-color:rgba(255,150,0,1);
+    border:1px solid #ffcc00;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    border-bottom:1px solid #9f9f9f;
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+    cursor:pointer;
+}
+input[type=button]:hover {
+    background-color:rgba(255,150,0,0.8);
+}
+</style>
+<div id="data">
+    This application will add your blocks to your calendar. Be careful and make sure all the information is correct before clicking submit.
+<br /><br/>Email:<input type="text" id="email" />
+<br /><br />Block A:<input type="text" id="blockA" /> Color:<select id="colorA">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block B:<input type="text" id="blockB" /> Color:<select id="colorB">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+  </select>
+<br /><br />Block C:<input type="text" id="blockC" /> Color:<select id="colorC">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block D:<input type="text" id="blockD" /> Color:<select id="colorD">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block E:<input type="text" id="blockE" /> Color:<select id="colorE">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block F:<input type="text" id="blockF" /> Color:<select id="colorF">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block G:<input type="text" id="blockG" /> Color:<select id="colorG">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br />Block H:<input type="text" id="blockH" /> Color:<select id="colorH">
+  <option selected value="1">Pale Blue</option>
+  <option value="2">Pale Green</option>
+  <option value="3">Mauve</option>
+  <option value="4">Pale Red</option>
+  <option value="9">Blue</option>
+  <option value="10">Green</option>
+  <option value="11">Red</option>
+  <option value="5">Yellow</option>
+  <option value="6">Orange</option>
+  <option value="7">Cyan</option>
+  <option value="8">Gray</option>
+</select>
+<br /><br /> 
+<br /><br />Start Date (mm/dd/yyyy)<input type="text" id="start"/>
+<br /><br />End Date (mm/dd/yyyy)<input type="text" id="end"/><br/><br/>
+Before clicking the button below, please make sure that the data above is correct.
+<br /><br /> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="button" value="Add Events" onclick="organize()" id="btn1" />
+</div>
+
+<div id="resp" style="display:none;">
+    <h1>Response</h1>
+    <p>Your data has been received. Please wait a few minutes for all your blocks to be added</p>
+  </div>
+  
+<script>
+$(function () {
+     $('#start').datepicker({
+         showButtonPanel: true,
+         dateFormat: "mm/dd/yy"});
+     $('#end').datepicker({
+         showButtonPanel: true,
+         dateFormat: "mm/dd/yy"});
+        $('#blockA').val('');
+        $('#blockB').val('');
+        $('#blockC').val('');
+        $('#blockD').val('');
+        $('#blockE').val('');
+        $('#blockF').val('');
+        $('#blockG').val('');
+        $('#blockH').val('');
+        $('#colorA').val('');
+        $('#colorB').val('');
+        $('#colorC').val('');
+        $('#colorD').val('');
+        $('#colorE').val('');
+        $('#colorF').val('');
+        $('#colorG').val('');
+        $('#colorH').val('')});
+      
+      function setResponse(blockNames) {
+      if(blockNames)
+      {
+          $('#data').css('display','none');
+          $('#resp').css('display','block');
+        }
+      }
+      
+      function organize() {
+        var email = document.getElementById('email').value || ' ';
+        var blockA = document.getElementById('blockA').value || ' ';
+        var blockB = document.getElementById('blockB').value || ' ';
+        var blockC = document.getElementById('blockC').value || ' ';
+        var blockD = document.getElementById('blockD').value || ' ';
+        var blockE = document.getElementById('blockE').value || ' ';
+        var blockF = document.getElementById('blockF').value || ' ';
+        var blockG = document.getElementById('blockG').value || ' ';
+        var blockH = document.getElementById('blockH').value || ' ';
+        var colorA = document.getElementById('colorA').value || '1';
+        var colorB = document.getElementById('colorB').value || '1';
+        var colorC = document.getElementById('colorC').value || '1';
+        var colorD = document.getElementById('colorD').value || '1';
+        var colorE = document.getElementById('colorE').value || '1';
+        var colorF = document.getElementById('colorF').value || '1';
+        var colorG = document.getElementById('colorG').value || '1';
+        var colorH = document.getElementById('colorH').value || '1';
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        var blockNames = [blockA,blockB,blockC,blockD,blockE,blockF,blockG,blockH];
+        var colors = [colorA,colorB,colorC,colorD,colorE,colorF,colorG,colorH];
+        
+        
+        
+        if(email != ' '){
+        alert('Your blocks will be added.');
+          $('#data').css('display','none');
+          $('#resp').css('display','block');
+        google.script.run
+            .addEvents(email,blockNames,colors,start,end);
+            }
+            else
+            {
+            alert('Email must be completed');
+            }
+      }
+   </script>
+  </body>
+</html>
