@@ -1,5 +1,5 @@
 function myFunction() {
-  var planningSlides = SlidesApp.openById('<Plannig Slides ID>');
+  var planningSlides = SlidesApp.openById('<Planning Slides ID>');
   var sci10DesSlides = SlidesApp.openById('<Class 1 Slides ID>');
   var sci101Slides = SlidesApp.openById('<Class 2 Slides ID>');
   var sci102Slides = SlidesApp.openById('<Class 3 Slides ID>');
