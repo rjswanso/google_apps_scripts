@@ -1,3 +1,3 @@
-# google_apps_scripts
+# Google Apps Scripts 
 
-This repo includes these scripts I used when working at a school. They helped streamline my work as a teacher as well as schoolwide jobs such as school calendar creation.
+These are scripts and web apps created to remove inefficiencies that existed as a teacher. Please see descriptions below.
