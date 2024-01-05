@@ -1,5 +1,6 @@
-function onFormOpen(e) {
-  var spreadSheet = SpreadsheetApp.openById('1ohSIy4zhJkyF2YUT_tVsZRipwPEvRAYCMyAN5VUTSiY');
+//Creates form with student data
+function onFormOpen(e) { 
+  var spreadSheet = SpreadsheetApp.openById("<Student List Form ID>");
   var form = FormApp.getActiveForm();
   var items = form.getItems();
   Logger.log(items.length);
@@ -35,9 +36,9 @@ function onFormOpen(e) {
     classes.setChoices(classChoices)
   }  
 }
-  
-function onFormSubmit(e) {
-  var spreadSheet = SpreadsheetApp.openById('1ohSIy4zhJkyF2YUT_tVsZRipwPEvRAYCMyAN5VUTSiY');
+//Saves submitted file to specified folder with provided file name and time
+function onFormSubmit(e) { 
+  var spreadSheet = SpreadsheetApp.openById('<Form Submission Spreadsheet ID>');
   var DP1sheet = spreadSheet.getSheets()[0];
   var DP2sheet = spreadSheet.getSheets()[1];
   
@@ -58,8 +59,8 @@ function onFormSubmit(e) {
   var time = Utilities.formatDate(timeStamp, "GMT", "MM/dd' 'HH:mm a");
 
   //Changes submission folder depending on what class they're in
-  if (class == DP1sheet.getName()) {var parentFolder = DriveApp.getFolderById("1kfNLUp7isYp8HvbjZc_JzzRFAzPT9wA5");}
-  if (class == DP2sheet.getName()) {var parentFolder = DriveApp.getFolderById("12HHQVrFZSlOdGn3lQAQDM3w5zRn87Rb1");}
+  if (class == DP1sheet.getName()) {var parentFolder = DriveApp.getFolderById("<class 1 Folder>");}
+  if (class == DP2sheet.getName()) {var parentFolder = DriveApp.getFolderById("<class 2 Folder>");}
 
   //gets file and folder for submission
   var driveFile = DriveApp.getFileById(formFile); 
