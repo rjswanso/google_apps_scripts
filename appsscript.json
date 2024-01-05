@@ -1,6 +1,0 @@
-{
-  "timeZone": "America/Indiana/Indianapolis",
-  "dependencies": {
-  },
-  "exceptionLogging": "STACKDRIVER"
-}
